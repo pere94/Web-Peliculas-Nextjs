@@ -1,0 +1,101 @@
+/* From uiverse.io */
+.TrendingButtonGroup {
+    position: relative;
+    border: none;
+    background: transparent;
+    padding: 0;
+    cursor: pointer;
+    outline-offset: 4px;
+    transition: filter 250ms;
+    user-select: none;
+    touch-action: manipulation;
+}
+
+.TrendingButtonGroup:focus {
+    outline: none;
+}
+   
+.shadow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 12px;
+    background: hsl(0deg 0% 0% / 0.25);
+    will-change: transform;
+    transform: translateY(2px);
+    transition: transform
+       600ms
+       cubic-bezier(.3, .7, .4, 1);
+}
+   
+.edge {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 12px;
+    background-image: linear-gradient(to right, 
+        #003973 0%,
+        #E5E5BE  8%,
+        #E5E5BE  92%,
+        #003973  100%
+    );
+}
+   
+.front {
+    display: block;
+    position: relative;
+    padding: 7px 27px;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    color: white;
+    background: #002c58;
+    will-change: transform;
+    transform: translateY(-4px);
+    transition: transform
+       600ms
+       cubic-bezier(.3, .7, .4, 1);
+}
+
+.buttonPress{
+        transform: translateY(0px);
+}
+   
+.TrendingButtonGroup:hover {
+    filter: brightness(110%);
+}
+   
+.TrendingButtonGroup:hover .front {
+    transform: translateY(-4px);
+    transition: transform
+       250ms
+       cubic-bezier(.3, .7, .4, 1.5);
+}
+   
+.TrendingButtonGroup:active .front {
+    transform: translateY(-1px);
+    transition: transform 34ms;
+}
+   
+.TrendingButtonGroup:hover .shadow {
+    transform: translateY(4px);
+    transition: transform
+       250ms
+       cubic-bezier(.3, .7, .4, 1.5);
+}
+   
+.TrendingButtonGroup:active .shadow {
+    transform: translateY(1px);
+    transition: transform 34ms;
+}
+   
+.TrendingButtonGroup:focus:not(:focus-visible) {
+    outline: none;
+}
+
+.buttonPress:hover{
+    transform: translateY(0px) !important;
+}

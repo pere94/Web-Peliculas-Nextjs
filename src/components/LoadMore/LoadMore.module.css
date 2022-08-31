@@ -1,0 +1,76 @@
+
+.LoadMore{
+    display: flex;
+    align-items: center;
+    height: 80%;
+    padding-right: 20px;
+    animation: flotarEjeY 2s linear infinite;
+}
+
+/* From uiverse.io by @mrhyddenn */
+.LoadMore_button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    position: relative;
+    cursor: pointer;
+    border-radius: 100px;
+    border: none;
+    background: #003973;
+    /* background: #333; */
+    color: #e5e5e5;
+    font-weight: 600;
+    box-shadow: inset 20px 20px 20px #003973,
+    inset -20px -20px 20px #1b263e;
+    font-size: 13px;
+  }
+
+  .LoadMore_button:focus{
+    outline: none;
+  }
+  
+  .LoadMore_button::after {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    left: -5px;
+    top: -5px;
+    border-radius: 50%;
+    width: calc(100% + 10px);
+    height: calc(100% + 10px);
+    background: linear-gradient(35deg, rgb(126, 199, 223),rgb(12, 90, 167)), rgb(1, 55, 85);
+    filter: blur(10px);
+    animation: rotcirclegr 1s linear infinite;
+}
+
+.LoadMore_button:hover {
+    box-shadow: inset 20px 20px 20px #005bb5,
+    inset -20px -20px 20px #1b263e;
+}
+
+.LoadMore_icon{
+  font-weight: bold;
+  font-size: 20px;
+}
+
+/* .LoadMore_button::after {
+  } */
+  
+  @keyframes rotcirclegr {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  @keyframes flotarEjeY {
+    0%,
+    100% {
+      transform: translateY(5px);
+    }
+  
+    50% {
+      transform: translateY(-5px);
+    }
+  }

@@ -1,0 +1,115 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.overflowXScroll {
+  @apply overflow-x-scroll ;
+  scrollbar-width: thin;
+  scrollbar-color: light;
+  scrollbar-color: #234e94 #e0e0e0;
+}
+
+.overflowYScroll {
+  @apply overflow-y-scroll ;
+  scrollbar-width: thin;
+  scrollbar-color: light;
+  scrollbar-color: #234e94 #e0e0e0;
+}
+
+* {
+  box-sizing: border-box;
+  scrollbar-width: thin;
+  scrollbar-color: light;
+  scrollbar-color: #234e94 #e0e0e0;
+  font-family: 'Dosis', sans-serif !important;
+  font-weight: 700;
+}
+
+*::-webkit-scrollbar {
+  width: 8px;               /* width of the entire scrollbar */
+}
+
+*::-webkit-scrollbar-track {
+  background: rgb(230, 230, 230);
+  border-radius: 10px;        /* color of the tracking area */
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #234e94;    /* color of the scroll thumb */
+  border-radius: 20px;       /* roundness of the scroll thumb */
+  border: none;  /* creates padding around scroll thumb */
+}
+
+* {
+  box-sizing: border-box;
+  scrollbar-width: thin;
+  scrollbar-color: light;
+  scrollbar-color: #234e94 #e0e0e0;
+}
+
+
+@layer components {
+
+  .primaryGradient {
+    background: #003973;
+    background-image: linear-gradient(to right, #003973 0%, #E5E5BE  100%);
+  }
+
+  .primaryGradientText {
+    background: #003973;
+    background-image: linear-gradient(to right, #003973 30%, #E5E5BE  100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .primaryButton {
+    background-image: linear-gradient(to right, #003973 0%, #E5E5BE  51%, #003973  100%);
+    margin: 10px;
+    padding: 10px 30px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;            
+    box-shadow: 0 0 20px #eee;
+    border-radius: 10px;
+    display: block;
+  }
+
+  .primaryButton:hover {
+    background-position: right center; /* change the direction of the change here */
+    color: #fff;
+    text-decoration: none;
+  }
+  
+}
+
+.navBarLink {
+  @apply ml-2 !important;
+}
+
+.navBarElementActive {
+  @apply bg-primary-700 text-white;
+}
+
+/* @media (prefers-color-scheme: dark) {
+  html {
+    color-scheme: dark;
+  }
+  body {
+    color: white;
+    background: black;
+  }
+} */
