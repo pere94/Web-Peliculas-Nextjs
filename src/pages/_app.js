@@ -3,8 +3,8 @@ import {Nav} from '../templates/Nav';
 import {AppContext } from "../context/AppContext";
 import {useInitialState} from "../hooks/useInitialState";
 
-import { store } from '/src/app/store'
-import { Provider } from 'react-redux'
+// import { store } from '/src/app/store'
+// import { Provider } from 'react-redux'
 
 
 function MyApp({ Component, pageProps }) {
@@ -13,7 +13,7 @@ function MyApp({ Component, pageProps }) {
   
 
   return (
-    <Provider store={store}>
+    // <Provider store={store}>
       <AppContext.Provider value={initialState}>
         <div className={`${initialState.darkMode ? 'dark' : ''}`}>
           <Nav 
@@ -27,7 +27,7 @@ function MyApp({ Component, pageProps }) {
           <Component {...pageProps} />
         </div>
       </AppContext.Provider>
-    </Provider>
+    // </Provider>
 
 );}
 

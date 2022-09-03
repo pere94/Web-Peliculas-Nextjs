@@ -9,42 +9,54 @@ import {GetApi} from '/src/services/GetApi';
 import {AppContext} from '/src/context/AppContext';
 import {endPointsApi} from '/src/services/endPointsApi';
 
-
 function TrendingCarrusel() {
-    const {trending, setTrending} = React.useContext(AppContext);
+    const {
+        trendingMovies, 
+        setTrendingMovies, 
+        trendingTvShows, 
+        setTrendingTvShows,
+        trendingActors, 
+        setTrendingActors,
+    } = React.useContext(AppContext);
+
     const [trendingMode, setTrendingMode] = React.useState('MOVIE');
-    const [trendingPage, setTrendingPage] = React.useState(1);
+    const [trendingMoviesPage, setTrendingMoviesPage] = React.useState(1);
+    const [trendingTvShowsPage, setTrendingTvShowsPage] = React.useState(1);
+    const [trendingActorsPage, setTrendingActorsPage] = React.useState(1);
 
     React.useEffect(() => {
         const getTrending = async () => {
-            if (trendingPage == 1 ) {
-                const newArray = new Array();
-                setTrending(newArray);
-            }
             
             if (trendingMode === 'TV') {
-                const trendingItems = await GetApi(endPointsApi.trending.tv , trendingPage);
-                setTrending(trendingPage == 1  
-                    ? trendingItems 
-                    : trending.concat(trendingItems));
+                const trendingItems = await GetApi(endPointsApi.trending.tv(trendingTvShowsPage));
+                setTrendingTvShows(trendingTvShowsPage == 1  
+                    ? trendingItems.results
+                    : trendingTvShows.concat(trendingItems.results)
+                );
             } else if (trendingMode === 'PERSON') {
-                const trendingItems = await GetApi(endPointsApi.trending.person , trendingPage);
-                setTrending(trendingPage == 1  
-                    ? trendingItems 
-                    : trending.concat(trendingItems));
+                const trendingItems = await GetApi(endPointsApi.trending.person(trendingActorsPage));
+                setTrendingActors(trendingActorsPage == 1  
+                    ? trendingItems.results
+                    : trendingActors.concat(trendingItems.results)
+                );
             } else {
-                const trendingItems = await GetApi(endPointsApi.trending.movie , trendingPage);
-            setTrending(trendingPage == 1  
-                ? trendingItems 
-                : trending.concat(trendingItems));
+                const trendingItems = await GetApi(endPointsApi.trending.movie(trendingMoviesPage));
+                setTrendingMovies(trendingMoviesPage == 1  
+                    ? trendingItems.results
+                    : trendingMovies.concat(trendingItems.results)
+                );
             }
         }   
         getTrending();
-    }, [trendingMode, trendingPage]);
+    }, [trendingMode, trendingMoviesPage, trendingTvShowsPage, trendingActorsPage, ]);
 
     const handleLoadMoreClick = () => {
-        setTrendingPage(trendingPage + 1);
+        trendingMode == 'MOVIE' && setTrendingMoviesPage(trendingMoviesPage + 1);
+        trendingMode == 'TV' && setTrendingTvShowsPage(trendingTvShowsPage + 1);
+        trendingMode == 'PERSON' && setTrendingActorsPage(trendingActorsPage + 1);
     };
+    
+    let idRenderedArray = [];
 
     return (
         <div className="  ">
@@ -55,21 +67,18 @@ function TrendingCarrusel() {
                     <TrendingButton 
                         text="Movies"
                         changeTrendingMode={() => setTrendingMode('MOVIE')}
-                        resetTrendingPage={() => setTrendingPage(1)}
                         mode='MOVIE'
                         trendingMode={trendingMode}
                     />
                     <TrendingButton 
                         text="TV Shows"
                         changeTrendingMode={() => setTrendingMode('TV')}
-                        resetTrendingPage={() => setTrendingPage(1)}
                         mode='TV'
                         trendingMode={trendingMode}
                     />
                     <TrendingButton 
                         text="Actors"
                         changeTrendingMode={() => setTrendingMode('PERSON')}
-                        resetTrendingPage={() => setTrendingPage(1)}
                         mode='PERSON'
                         trendingMode={trendingMode}
                     />
@@ -78,10 +87,13 @@ function TrendingCarrusel() {
 
             <div className="relative flex flex-nowrap gap-3 overflowXScroll z-50 h-[370px]">
 
-                <Loading trendingMode={trendingMode}/>
+                <Loading activeLoading={trendingMode}/>
 
-                {(trendingMode === 'MOVIE') && trending.map( item => (
-                        <MovieCard 
+                {(trendingMode === 'MOVIE') && trendingMovies.map( item => {
+                    // Evidatndo key duplicadas en el renderizado
+                    if(!idRenderedArray.includes(item.id)){
+                        idRenderedArray.push(item.id);
+                        return (<MovieCard 
                             imgCard={item.poster_path ? 
                                 `https://image.tmdb.org/t/p/w440_and_h660_face/${item.poster_path}` 
                                 :
@@ -92,28 +104,34 @@ function TrendingCarrusel() {
                             stars={item.vote_average}
                             votes={item.vote_count}
                             key={`movie-${item.title}-${item.release_date}-${item.id}`}
-                        />
-                ))}
+                        />);
+                    }
+                })}
 
-                {(trendingMode === 'TV') && trending.map( item => (
-                    <MovieCard 
-                        imgCard={item.poster_path ? 
-                            `https://image.tmdb.org/t/p/w220_and_h330_face/${item.poster_path}` 
-                            :
-                            userDontImg
-                        }
-                        title={item.name}
-                        date={item.first_air_date}
-                        stars={item.vote_average}
-                        votes={item.vote_count}
-                        key={`tv-${item.name}-${item.id}`}
-                    />
-                ))}
+                {(trendingMode === 'TV') && trendingTvShows.map( item => {
+                    // Evidatndo key duplicadas en el renderizado
+                    if(!idRenderedArray.includes(item.id)){
+                        idRenderedArray.push(item.id);
+                        return (<MovieCard 
+                            imgCard={item.poster_path ? 
+                                `https://image.tmdb.org/t/p/w220_and_h330_face/${item.poster_path}` 
+                                :
+                                userDontImg
+                            }
+                            title={item.name}
+                            date={item.first_air_date}
+                            stars={item.vote_average}
+                            votes={item.vote_count}
+                            key={`tv-${item.name}-${item.id}`}
+                        />);
+                    }
+                })}
 
-                {(trendingMode === 'PERSON') && trending.map( item => (
-
-                    item.known_for_department == 'Acting' && item.profile_path != null &&
-                        <PersonCard 
+                {(trendingMode === 'PERSON') && trendingActors.map( item => {
+                    // Evidatndo key duplicadas en el renderizado, solo actores y solo render con imagenes
+                    if(!idRenderedArray.includes(item.id) && item.known_for_department == 'Acting' && item.profile_path != null){
+                        idRenderedArray.push(item.id);
+                        return (<PersonCard 
                             imgCard={item.profile_path ?
                                 `https://www.themoviedb.org/t/p/w470_and_h470_face/${item.profile_path}`
                                 :
@@ -123,10 +141,14 @@ function TrendingCarrusel() {
                             role={item.known_for_department}
                             popularity={item.popularity}
                             key={`person-${item.name}-${item.id}`}
-                        />
-                ))}
+                        />);
+                    }   
+                })}
 
-                <LoadMore handleLoadMoreClick={handleLoadMoreClick}/>
+                <div className="flex justify-center items-center pr-5 h-4/5">
+                    <LoadMore handleLoadMoreClick={handleLoadMoreClick} dirLoad='Right'/>
+                    <div className=" h-full w-14 GridGradientX rounded-xl"></div>
+                </div>
                 
             </div>
 

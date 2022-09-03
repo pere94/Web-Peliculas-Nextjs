@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './Loading.module.css';
 
-function Loading({trendingMode}) {
+function Loading({activeLoading}) {
     const [showLoading, setShowLoading] = React.useState(true);
     
     React.useEffect(() => {
@@ -9,7 +9,7 @@ function Loading({trendingMode}) {
         setTimeout(() => {
             setShowLoading(false);
         }, 1500);
-    }, [trendingMode]);
+    }, [activeLoading]);
 
     return (
         <>

@@ -5,7 +5,7 @@ function HeroHeader({ h1_title, imageHeader }) {
     return (
         <header className="">
 
-            <div className="relative z-30 pt-16 w-full h-[500px] flex justify-center items-center">
+            <div className="relative z-20 pt-16 w-full h-[500px] flex justify-center items-center">
                 <div className="h-80 w-full flex flex-col justify-center items-center">
                     <h1 className="text-7xl text-white font-extrabold">{h1_title}</h1>
                     <span className="ml-5 w-3/5 min-w-[300px]">

@@ -57,7 +57,7 @@ function Nav({navLinks}) {
 
   return (
     <nav id="Nav" className="bg-white/0  border-gray-200 px-4 lg:px-6 py-0 h-14
-      dark:bg-darkModeColor/0 absolute top-0 left-0 z-40 w-full">
+      dark:bg-darkModeColor/0 absolute top-0 left-0 z-30 w-full">
       <div className="flex flex-wrap items-center justify-between max-w-screen-xl h-full">
         <Logo 
           icon={

@@ -11,7 +11,7 @@ function TrendingButton({mode, text, trendingMode, changeTrendingMode, resetTren
 
     const handleOnclickButton = () => {
         changeTrendingMode();
-        resetTrendingPage();
+        // resetTrendingPage();
     };
 
     return (
