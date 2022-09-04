@@ -2,9 +2,11 @@ import '../styles/globals.css'
 import {Nav} from '../templates/Nav';
 import {AppContext } from "../context/AppContext";
 import {useInitialState} from "../hooks/useInitialState";
+import {Footer} from '/src/templates/Footer';
 
 // import { store } from '/src/app/store'
 // import { Provider } from 'react-redux'
+
 
 
 function MyApp({ Component, pageProps }) {
@@ -25,6 +27,7 @@ function MyApp({ Component, pageProps }) {
             ]}
           />
           <Component {...pageProps} />
+          <Footer />
         </div>
       </AppContext.Provider>
     // </Provider>

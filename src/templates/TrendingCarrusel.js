@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 import {MovieCard} from '/src/components/MovieCard'
 import {PersonCard} from '/src/components/PersonCard'
 import {Loading} from '/src/components/Loading/Loading'
@@ -60,7 +61,8 @@ function TrendingCarrusel() {
 
     return (
         <div className="  ">
-            <div className="flex justify-start items-center mb-5">
+            <div className="flex justify-start items-center mb-5
+                sm:flex-col">
                 <h2 className="text-5xl mr-5 text-version1 dark:text-white">Trending</h2>
                 <div className="flex gap-3">
 
@@ -93,38 +95,47 @@ function TrendingCarrusel() {
                     // Evidatndo key duplicadas en el renderizado
                     if(!idRenderedArray.includes(item.id)){
                         idRenderedArray.push(item.id);
-                        return (<MovieCard 
-                            imgCard={item.poster_path ? 
-                                `https://image.tmdb.org/t/p/w440_and_h660_face/${item.poster_path}` 
-                                :
-                                userDontImg
-                            }
-                            title={item.title}
-                            date={item.release_date}
-                            stars={item.vote_average}
-                            votes={item.vote_count}
-                            key={`movie-${item.title}-${item.release_date}-${item.id}`}
-                        />);
+                        return (
+                                <MovieCard 
+                                    imgCard={item.poster_path ? 
+                                        `https://image.tmdb.org/t/p/w440_and_h660_face/${item.poster_path}` 
+                                        :
+                                        userDontImg
+                                    }
+                                    title={item.title}
+                                    date={item.release_date}
+                                    stars={item.vote_average}
+                                    votes={item.vote_count}
+                                    key={`movie-${item.title}-${item.release_date}-${item.id}`}
+                                    id={item.id}
+                                    trendingMode={trendingMode}
+                                />
+                        );
                     }
                 })}
 
+                    
+                    
                 {(trendingMode === 'TV') && trendingTvShows.map( item => {
                     // Evidatndo key duplicadas en el renderizado
                     if(!idRenderedArray.includes(item.id)){
                         idRenderedArray.push(item.id);
-                        return (<MovieCard 
-                            imgCard={item.poster_path ? 
-                                `https://image.tmdb.org/t/p/w220_and_h330_face/${item.poster_path}` 
-                                :
-                                userDontImg
-                            }
-                            title={item.name}
-                            date={item.first_air_date}
-                            stars={item.vote_average}
-                            votes={item.vote_count}
-                            key={`tv-${item.name}-${item.id}`}
-                        />);
-                    }
+                        return (
+                                <MovieCard 
+                                    imgCard={item.poster_path ? 
+                                        `https://image.tmdb.org/t/p/w220_and_h330_face/${item.poster_path}` 
+                                        :
+                                        userDontImg
+                                    }
+                                    title={item.name}
+                                    date={item.first_air_date}
+                                    stars={item.vote_average}
+                                    votes={item.vote_count}
+                                    key={`tv-${item.name}-${item.id}`}
+                                    id={item.id}
+                                    trendingMode={trendingMode}
+                                />
+                        );}
                 })}
 
                 {(trendingMode === 'PERSON') && trendingActors.map( item => {

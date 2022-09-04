@@ -17,6 +17,12 @@ const endPointsApi = {
     filter: {
         movies: (order = 'popularity.asc', page= 1, year = '', rating = '', actor = '', genre = '') => `${API}/${VERSION}/discover/movie?api_key=${KEY}&language=en-US&sort_by=${order}&page=${page}&primary_release_year=${year}&vote_average.gte=${rating}&with_people=${actor}&with_genres=${genre}&with_watch_monetization_types=flatrate`,
     },
+    movie: {
+        getData: (id) => `${API}/${VERSION}/movie/${id}?api_key=${KEY}&language=en-US`,
+    },
+    tv: {
+        getData: (id) => `${API}/${VERSION}/tv/${id}?api_key=${KEY}&language=en-US`,
+    },
     // categories: {
     //     getCategoriesList: (limit) => `${API}/api/${VERSION}/categories?limit=${limit}`,
     //     addCategory: () => `${API}/api/${VERSION}/categories`,

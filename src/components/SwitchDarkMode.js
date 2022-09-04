@@ -15,9 +15,11 @@ export default function SwitchDarkMode() {
       className="flex items-center justify-center"
     >
       {toggleMode ? (
-        <BsFillSunFill className="rounded-lg p-1 h-7 w-7 text-sun bg-gray-100 shadow-sun shadow-simpleSh+++" />
+        <BsFillSunFill className="rounded-lg p-1 h-9 w-9 text-sun bg-gray-100 shadow-sun 
+          shadow-simpleSh+++ flex justify-center items-center" />
       ) : (
-        <IoMdMoon className="rounded-lg p-1 h-7 w-7  text-blue-300 bg-gray-700 shadow-blue-300 shadow-simpleSh+++" />
+        <IoMdMoon className="rounded-lg p-1 h-9 w-9  text-blue-300 bg-gray-700 
+          shadow-blue-300 shadow-simpleSh+++ flex justify-center items-center" />
       )}
     </div>
   );

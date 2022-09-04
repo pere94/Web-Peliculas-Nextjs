@@ -54,6 +54,7 @@ function SearchGridCard() {
                         stars={item.vote_average}
                         votes={item.vote_count}
                         key={`searched-${item.id+item.title}`}
+                        id={item.id}
                     />
                 ))}
 

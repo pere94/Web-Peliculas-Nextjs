@@ -56,8 +56,9 @@ function Nav({navLinks}) {
 
 
   return (
-    <nav id="Nav" className="bg-white/0  border-gray-200 px-4 lg:px-6 py-0 h-14
-      dark:bg-darkModeColor/0 absolute top-0 left-0 z-30 w-full">
+    <nav id="Nav" className="bg-white/0 min-w-[320px] border-gray-200 px-4 py-0 h-14
+      dark:bg-darkModeColor/0 absolute top-0 left-0 z-30 w-full
+      sm:px-2">
       <div className="flex flex-wrap items-center justify-between max-w-screen-xl h-full">
         <Logo 
           icon={
@@ -68,13 +69,13 @@ function Nav({navLinks}) {
         />
         
         <div
-          className={`lg:fixed lg:z-20 lg:top-14 lg:right-5 p-2 lg:bg-white lgMin:bg-white/0 lg:dark:bg-darkModeColor 
-            lgMin:dark:bg-darkModeColor/0 items-center justify-between ${toggle ? "lg:hidden" : ""} 
-            lg:w-52 lg:flex w-auto lg:order-1 rounded-2xl lg:shadow-simpleSh+++ lg:dark:shadow-version3 
-            lg:shadow-primary-500`}
+          className={`fixed z-20 top-14 right-5 p-2 bg-white dark:bg-darkModeColor 
+             items-center justify-between ${toggle ? "hidden" : ""} 
+            w-52 flex order-1 rounded-2xl shadow-simpleSh+++ dark:shadow-version3 
+            shadow-primary-500`}
 
         >
-          <ul className="flex lg:flex-col font-medium flex-row lg:space-x-8 lg:mt-0 lg:w-full">
+          <ul className="flex flex-col font-medium space-x-8 mt-0 w-full">
 
             {navLinks.map(nameLink => (
               <li className="navBarLink" key={nameLink}>
@@ -85,7 +86,7 @@ function Nav({navLinks}) {
                   ${staysPlace && nameLink == navLinks[1] ? 'navBarElementActive' : ""}
                   ${faqsPlace && nameLink == navLinks[2] ? 'navBarElementActive' : ""}
                   ${aboutUs && nameLink == navLinks[3] ? 'navBarElementActive' : ""}
-                  lg:bg-transparent lg:text-primary-700 hover:text-white`}
+                  bg-transparent text-primary-700 hover:text-white`}
                   aria-current="page"
                 >
                   {nameLink}
@@ -107,14 +108,14 @@ function Nav({navLinks}) {
             data-collapse-toggle="mobile-menu-2"
             type="button"
             className="inline-flex items-center p-1 ml-2 text-xl text-version3 
-              rounded-lg hover:bg-version1 focus:outline-none lgMin:hidden
+              rounded-lg hover:bg-version1 focus:outline-none
               focus:ring-2 focus:ring-gray-200 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
             aria-controls="mobile-menu-2"
             aria-expanded="false"
           >
             <span className="sr-only">Open main menu</span>
             <svg
-              className="w-7 h-7"
+              className="w-9 h-9"
               fill="currentColor"
               viewBox="0 0 20 20"
               xmlns="http://www.w3.org/2000/svg"

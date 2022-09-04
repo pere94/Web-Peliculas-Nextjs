@@ -8,7 +8,7 @@ function Loading({activeLoading}) {
         setShowLoading(true);
         setTimeout(() => {
             setShowLoading(false);
-        }, 1500);
+        }, 1000);
     }, [activeLoading]);
 
     return (

@@ -8,7 +8,8 @@ function HeroHeader({ h1_title, imageHeader }) {
             <div className="relative z-20 pt-16 w-full h-[500px] flex justify-center items-center">
                 <div className="h-80 w-full flex flex-col justify-center items-center">
                     <h1 className="text-7xl text-white font-extrabold">{h1_title}</h1>
-                    <span className="ml-5 w-3/5 min-w-[300px]">
+                    <span className="ml-6 w-3/5 min-w-[300px]
+                        sm:w-11/12">
                         <HeroSearch 
                             placeholder='Movies, TV shows, Actors...'
                         />
@@ -16,14 +17,14 @@ function HeroHeader({ h1_title, imageHeader }) {
                 </div>
             </div>
 
-            <div className="fixed top-0 left-0 z-0 h-2 w-full min-h-[500px]">
+            <div className="fixed top-0 left-0 z-0 h-2 w-full min-h-[500px] min-w-[320px]">
                 <Image
                 src={imageHeader}
                 layout="fill"
-                className="object-cover object-center absolute top-0 left-0 z-10"
+                className="object-cover object-center absolute top-0 left-0 z-10 min-w-[320px]"
                 priority 
                 />
-                <div className="absolute z-20 w-full min-h-[500px] bg-black/50"></div>
+                <div className="absolute z-20 w-full min-w-[320px] min-h-[500px] bg-black/50"></div>
             </div>
         </header>
     );

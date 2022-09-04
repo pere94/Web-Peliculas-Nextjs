@@ -99,3 +99,15 @@
 .buttonPress:hover{
     transform: translateY(0px) !important;
 }
+
+
+@media (max-width: 639px) {
+
+    .TrendingButtonGroup {
+        margin-top: 20px;
+    }
+
+    .front {
+        padding: 7px 15px;
+    }
+}

@@ -5,7 +5,7 @@ function HeroSearch({placeholder}) {
         <div className="flex justify-center items-center h-52 w-full relative">
             <input 
                 type="search" 
-                className="w-full h-11 border-2 border-version3 rounded-3xl text-xl bg-black/80 
+                className="w-full min-w-[260px] h-11 border-2 border-version3 rounded-3xl text-xl bg-black/80 
                     text-version3 indent-2" 
                 placeholder={placeholder} 
             />
