@@ -15,10 +15,10 @@ function RightBarModal() {
 
     return (
         <>
-            <div >
+            <div className="relative z-[90]">
                 <div className="w-full ">
                     <button onClick={handleClickShowModal} className={`primaryButton px-2 py-2 rounded-l-none 
-                        fixed !z-50 top-20 ${showModal ? 'left-64' : 'left-0'} duration-300 m-0`} type="button">
+                        fixed !z-100 top-20 ${showModal ? 'left-64' : 'left-0'} duration-300 m-0`} type="button">
                         {' '}
                         {!showModal ? <AiFillFilter className="text-white text-2xl" /> : <RiCloseFill className="text-white text-2xl font-bold" />}
                     </button>
@@ -26,7 +26,7 @@ function RightBarModal() {
 
                 <div
                     id="drawer-form"
-                    className={`fixed z-[80] top-0 h-screen p-4 bg-white overflow-y-scroll
+                    className={`fixed z-[90] top-0 h-screen p-4 bg-white overflow-y-scroll
                         w-64 dark:bg-gray-800 ${showModal ? 'left-0' : '-left-80'} transition-[left] duration-300 `}>
 
                     <h5 id="drawer-label" className="inline-flex items-center mb-6 text-base font-semibold text-gray-500 uppercase dark:text-gray-400">

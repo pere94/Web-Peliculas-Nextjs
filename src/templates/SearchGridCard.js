@@ -36,6 +36,7 @@ function SearchGridCard() {
         });
     };
 
+    let idRenderedArray = [];
 
     return (
         <>
@@ -45,18 +46,25 @@ function SearchGridCard() {
 
             <div className=" flex justify-center items-center flex-wrap gap-3 w-full">
 
-                {filteredFilms?.map( item => (
+                {filteredFilms?.map( item => {
+                    if (!idRenderedArray.includes(item.id)) {
+                        idRenderedArray.push(item.id);
+                        return (
+                            !!item.poster_path && <MovieCard 
+                                imgCard={`https://image.tmdb.org/t/p/w220_and_h330_face/${item.poster_path}`}
+                                title={item.title}
+                                date={item.release_date}
+                                stars={item.vote_average}
+                                votes={item.vote_count}
+                                key={`searched-${item.id+item.title}`}
+                                id={item.id}
+                                trendingMode='MOVIE'
+                            />
+                        );
+                    }
                     
-                    !!item.poster_path && <MovieCard 
-                        imgCard={`https://image.tmdb.org/t/p/w220_and_h330_face/${item.poster_path}`}
-                        title={item.title}
-                        date={item.release_date}
-                        stars={item.vote_average}
-                        votes={item.vote_count}
-                        key={`searched-${item.id+item.title}`}
-                        id={item.id}
-                    />
-                ))}
+
+                })}
 
             </div>
             

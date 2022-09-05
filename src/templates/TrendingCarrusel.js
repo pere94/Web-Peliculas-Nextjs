@@ -152,6 +152,7 @@ function TrendingCarrusel() {
                             role={item.known_for_department}
                             popularity={item.popularity}
                             key={`person-${item.name}-${item.id}`}
+                            id={item.id}
                         />);
                     }   
                 })}

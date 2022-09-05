@@ -2,7 +2,8 @@ import React from 'react';
 // import Head from 'next/head'
 // import Image from 'next/image
 
-import imageHeader from '/src/img/exampleImageHeader.jpg';
+// import imageHeader from '/src/img/exampleImageHeader.jpg';
+import { AppContext } from "/src/context/AppContext";
 import imgCard from '/src/img/carImg.jpg';
 
 import { HeroHeader } from "/src/templates/HeroHeader";
@@ -11,6 +12,8 @@ import { SearchGridCard } from "/src/templates/SearchGridCard";
 import { RightBarModal } from "/src/templates/RightBarModal";
 
 export default function Home() {
+  const {trendingMovies} = React.useContext(AppContext);
+  const imageHeader = `https://image.tmdb.org/t/p/w1920_and_h800_multi_faces/${trendingMovies[0]?.poster_path}`;
 
   return (
     <div className="w-full h-full bg-white dark:bg-darkModeColor  dark:text-white

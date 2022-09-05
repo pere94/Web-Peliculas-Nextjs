@@ -16,7 +16,7 @@ function MovieCard(props) {
 
     return (
         <>
-            <Link href={`/${trendingMode == 'MOVIE' ? 'movies' : ''}${trendingMode == 'TV' ? 'tv' : ''}/${title.toLowerCase().replace(/:/g, '').replace(/ /g, '-')}?id=${id}`}>
+            <Link href={`/${trendingMode == 'MOVIE' ? 'movie' : ''}${trendingMode == 'TV' ? 'tv' : ''}/${title.toLowerCase().replace(/:/g, '').replace(/ /g, '-')}?id=${id}`}>
                 
                 <article  
                     className="w-52 min-w-[200px] flex flex-col p-1 rounded-2xl h-[360] hover:opacity-100"
