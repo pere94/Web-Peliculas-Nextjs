@@ -9,7 +9,7 @@ import { LabelSelect } from '/src/components/LabelSelect';
 import { InputWithSearch } from '/src/components/InputWithSearch';
 import { AppContext } from 'context/AppContext';
 
-function TabMovieContent({ handleClickShowModal }) {
+function TvContent({ handleClickShowModal }) {
     const { setFilteredFilms, setmodalFilterData } = React.useContext(AppContext);
     const [genresList, setGenresList] = React.useState([]);
     const router = useRouter();
@@ -176,4 +176,4 @@ function TabMovieContent({ handleClickShowModal }) {
     );
 }
 
-export { TabMovieContent };
+export { TvContent };

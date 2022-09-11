@@ -1,19 +1,20 @@
-import Link from "next/link";
+import Link from 'next/link';
 
 function Logo({ icon, brand }) {
-  return (
-    <Link href="/">
-        <a href="" className="flex items-center primaryGradientText">
-            <span className="w-12 h-12 text-version1">
-                {icon}
-            </span>
+    return (
+        <Link href="/">
+            <div className="flex items-center primaryGradientText cursor-pointer">
+                <span className="w-12 h-12 text-version1">{icon}</span>
 
-            <p className="ml-2 self-center text-[40px] h-12 font-extrabold flex items-center
+                <p
+                    className="ml-2 self-center text-[40px] h-12 font-extrabold flex items-center
               py-0"
-            >{brand}</p>
-        </a>
-    </Link>
-  );
+                >
+                    {brand}
+                </p>
+            </div>
+        </Link>
+    );
 }
 
 export { Logo };

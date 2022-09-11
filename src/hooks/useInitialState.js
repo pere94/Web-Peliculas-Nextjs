@@ -1,22 +1,10 @@
-import React from "react";
-
-
-// const initialState = {
-//         trendingMode: 'MOVIE',
-//         trendingPage: 1,
-//         trendingMovies: [],
-//         trendingTvShows: [],
-//         trendingActors: [],
-//     };
-
+import React from 'react';
 
 function useInitialState() {
     const [darkMode, setDarkMode] = React.useState(false);
-    // const [trending, setTrending] = React.useState([]);
     const [trendingMovies, setTrendingMovies] = React.useState([]);
     const [trendingTvShows, setTrendingTvShows] = React.useState([]);
     const [trendingActors, setTrendingActors] = React.useState([]);
-
 
     const [filteredFilms, setFilteredFilms] = React.useState([]);
     const [modalFilterData, setmodalFilterData] = React.useState({
@@ -27,8 +15,6 @@ function useInitialState() {
         actor: '',
         genre: '',
     });
-    
-
 
     return {
         darkMode,
@@ -44,7 +30,6 @@ function useInitialState() {
         setTrendingTvShows,
         setTrendingActors,
     };
-
 }
 
-export {useInitialState};
+export { useInitialState };

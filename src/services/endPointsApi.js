@@ -16,7 +16,10 @@ const endPointsApi = {
         person: (id) => `${API}/${VERSION}/person/${id}?api_key=${KEY}&language=en-US`,
     },
     filter: {
-        movies: (order = 'popularity.asc', page= 1, year = '', rating = '', actor = '', genre = '') => `${API}/${VERSION}/discover/movie?api_key=${KEY}&language=en-US&sort_by=${order}&page=${page}&primary_release_year=${year}&vote_average.gte=${rating}&with_people=${actor}&with_genres=${genre}&with_watch_monetization_types=flatrate`,
+        movies: (order = 'popularity.asc', page = 1, year = '', rating = '', actor = '', genre = '') =>
+            `${API}/${VERSION}/discover/movie?api_key=${KEY}&language=en-US&sort_by=${order}&page=${page}&primary_release_year=${year}&vote_average.gte=${rating}&with_people=${actor}&with_genres=${genre}&with_watch_monetization_types=flatrate`,
+        tv: (order = 'popularity.desc', page = 1, year = '', rating = '', actor = '', genre = '') =>
+            `${API}/${VERSION}/discover/movie?api_key=${KEY}&language=en-US&sort_by=${order}&page=${page}&primary_release_year=${year}&vote_average.gte=${rating}&with_people=${actor}&with_genres=${genre}&with_watch_monetization_types=flatrate`,
     },
     movie: {
         getData: (id) => `${API}/${VERSION}/movie/${id}?api_key=${KEY}&language=en-US`,
@@ -27,12 +30,6 @@ const endPointsApi = {
     search: {
         all: (query = '') => `${API}/${VERSION}/search/multi?api_key=${KEY}&language=en-US&query=${query}&page=1&include_adult=false`,
     },
-    // categories: {
-    //     getCategoriesList: (limit) => `${API}/api/${VERSION}/categories?limit=${limit}`,
-    //     addCategory: () => `${API}/api/${VERSION}/categories`,
-    //     getCategoryItems: (id, limit, offset) => `${API}/api/${VERSION}/categories/${id}/products?limit=${limit}&offset=${offset}`,
-    //     updateCategory: (id) => `${API}/api/${VERSION}/categories/${id}`,
-    // },
 };
 
-export  {endPointsApi};
+export { endPointsApi };

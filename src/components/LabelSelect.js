@@ -1,11 +1,7 @@
-
-
-function LabelSelect({label = '', options, selected, selectRef}) {
-    return ( 
+function LabelSelect({ label = '', options, selected, selectRef }) {
+    return (
         <>
-            <label className="w-full block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">
-                {label}
-            </label>
+            <label className="w-full block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">{label}</label>
             <select
                 ref={selectRef}
                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg 
@@ -13,13 +9,17 @@ function LabelSelect({label = '', options, selected, selectRef}) {
                     dark:border-gray-600 dark:placeholder-gray-400 dark:text-white 
                     dark:focus:ring-blue-500 dark:focus:border-blue-500"
             >
-                <option value={selected.value} defaultValue>{selected.text}</option>
-                {options.map( option => (
-                    <option key={option.name} value={!option.value ? option.id : option.value}>{option.name}</option>
+                <option value={selected.value} defaultValue>
+                    {selected.text}
+                </option>
+                {options.map((option) => (
+                    <option key={option.name} value={!option.value ? option.id : option.value}>
+                        {option.name}
+                    </option>
                 ))}
             </select>
         </>
-     );
+    );
 }
 
-export {LabelSelect};
+export { LabelSelect };

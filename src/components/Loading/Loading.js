@@ -1,9 +1,9 @@
 import React from 'react';
 import styles from './Loading.module.css';
 
-function Loading({activeLoading}) {
+function Loading({ activeLoading }) {
     const [showLoading, setShowLoading] = React.useState(true);
-    
+
     React.useEffect(() => {
         setShowLoading(true);
         setTimeout(() => {
@@ -13,7 +13,7 @@ function Loading({activeLoading}) {
 
     return (
         <>
-            {showLoading ? 
+            {showLoading ? (
                 <div className={styles.Loading}>
                     <div className={styles.dotWave}>
                         <div className={styles.dotWave__dot}></div>
@@ -22,11 +22,11 @@ function Loading({activeLoading}) {
                         <div className={styles.dotWave__dot}></div>
                     </div>
                 </div>
-                :
+            ) : (
                 <div></div>
-            }
+            )}
         </>
     );
 }
 
-export {Loading};
+export { Loading };
