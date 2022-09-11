@@ -8,8 +8,8 @@ function MovieCard(props) {
     return (
         <>
             <Link href={`/${trendingMode == 'MOVIE' ? 'movie' : ''}${trendingMode == 'TV' ? 'tv' : ''}/${title.toLowerCase().replace(/:/g, '').replace(/ /g, '-')}?id=${id}`}>
-                <article className="w-52 min-w-[200px] flex flex-col p-1 rounded-2xl h-[360] hover:opacity-100">
-                    <div href="#" className="no-underline rounded-2xl overflow-hidden cursor-pointer max-h-[300px]">
+                <article className="w-52 min-w-[200px] flex flex-col p-1 rounded-2xl h-[360] hover:opacity-100 cursor-pointer">
+                    <div href="#" className="no-underline rounded-2xl overflow-hidden max-h-[300px]">
                         <Image width={200} height={300} id="imgTrend0" className="object-cover object-center rounded-2xl mb-3 max-h-[300px]" src={imgCard} alt="" />
                         <div
                             className={` relative -top-[306px] opacity-0 py-2 px-3 text-xl font-medium text-white bg-gray-900/80  
